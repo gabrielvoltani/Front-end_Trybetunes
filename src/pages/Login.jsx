@@ -29,10 +29,10 @@ class Login extends React.Component {
       loading: true,
     });
     await createUser({ name: login });
-    history.push('/search');
     this.setState({
       loading: false,
     });
+    history.push('/search');
   }
 
   render() {

@@ -46,12 +46,11 @@ class Album extends React.Component {
               </div>
               {songInfos
                 .slice(1)
-                .map((album) => (
-                  <div key={ songInfos.collectionId }>
-                    <MusicCard
-                      tracks={ album }
-                    />
-                  </div>
+                .map((album, index) => (
+                  <MusicCard
+                    key={ index }
+                    tracks={ album }
+                  />
                 ))}
             </div>
           )

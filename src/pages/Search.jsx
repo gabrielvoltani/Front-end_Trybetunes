@@ -1,10 +1,12 @@
 import React from 'react';
 import Header from '../components/Header';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
 
 class Search extends React.Component {
   state = {
     artistName: '',
     isDisabled: true,
+    // loading: false,
   }
 
   onInputChange = (event) => {
@@ -19,10 +21,28 @@ class Search extends React.Component {
     });
   }
 
+  btnClick = async () => {
+    const {
+      artistName,
+    } = this.state;
+    if (typeof artistName !== 'string') {
+      console.log('erro');
+    } else {
+      this.setState({
+        // loading: true,
+      });
+      await searchAlbumsAPI(artistName);
+      this.setState({
+        // loading: false,
+      });
+    }
+  }
+
   render() {
     const {
       artistName,
       isDisabled,
+      // loading,
     } = this.state;
 
     return (
@@ -39,6 +59,7 @@ class Search extends React.Component {
             type="submit"
             data-testid="search-artist-button"
             disabled={ isDisabled }
+            onClick={ this.btnClick }
           >
             Pesquisar
           </button>

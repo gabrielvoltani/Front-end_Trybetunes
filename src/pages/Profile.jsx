@@ -47,8 +47,6 @@ class Profile extends React.Component {
               <div>{ email }</div>
               <div>{ description }</div>
               <img src={ image } alt={ loginName } data-testid="profile-image" />
-              <Link to="/search" data-testid="link-to-search">Search</Link>
-              <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
               <Link
                 to="/profile/edit"
               >
